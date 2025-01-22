@@ -40,6 +40,10 @@ jobs:
         with:
           version: 'latest'
 
+      - name: Create kubeconfig directory
+        run: |
+          mkdir -p ~/.kube
+
       - name: Configure kubeconfig
         run: echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
 
