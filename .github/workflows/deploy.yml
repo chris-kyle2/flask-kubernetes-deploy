@@ -40,13 +40,21 @@ jobs:
         with:
           version: 'latest'
 
+      - name: Set up AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+
       - name: Create kubeconfig directory
         run: |
           mkdir -p ~/.kube
 
       - name: Configure kubeconfig
-        run: echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
-
+        run: |
+          aws eks --region ${{ secrets.AWS_DEFAULT_REGION }} update-kubeconfig --name your-cluster-name
+          
       - name: Apply Kubernetes Manifest
         run: kubectl apply -f deployment-service.yaml
 
