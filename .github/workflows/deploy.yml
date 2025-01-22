@@ -53,7 +53,7 @@ jobs:
 
       - name: Configure kubeconfig
         run: |
-          aws eks --region ${{ secrets.AWS_DEFAULT_REGION }} update-kubeconfig --name your-cluster-name
+          aws eks --region ${{ secrets.AWS_DEFAULT_REGION }} update-kubeconfig --name 100ms
           
       - name: Apply Kubernetes Manifest
         run: kubectl apply -f deployment-service.yaml
