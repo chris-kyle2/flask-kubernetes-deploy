@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: 22monk/100msassignment:latest
+        image: 22monk/100msassignment:${{ github.sha }}
         ports:
         - containerPort: 5000
         resources:
