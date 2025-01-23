@@ -35,11 +35,10 @@ kind: Service
 metadata:
   name: flask-app-service
 spec:
-  type: NodePort
+  type: LoadBalancer  
   selector:
     app: flask-app
   ports:
   - protocol: TCP
-    port: 80
-    targetPort: 5000
-    nodePort: 30080 # Optional: Specify a port if you want a fixed port
+    port: 80      # This is the port the LoadBalancer will expose
+    targetPort: 5000  # This is the port the Flask app is running on inside the container
