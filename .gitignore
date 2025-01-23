@@ -1,0 +1,35 @@
+# Terraform state files
+*.tfstate
+*.tfstate.backup
+
+# Crash log files
+crash.log
+
+# .tfvars files, potentially containing sensitive information
+*.tfvars
+
+# .auto.tfvars files, potentially containing sensitive information
+*.auto.tfvars
+
+# .terraform directory, where provider plugins and cached data are stored
+.terraform/
+
+# Terraform plan files
+*.plan
+
+# Local Terraform configuration files
+terraform.rc
+.terraformrc
+
+# IDE and editor specific files
+.idea/
+.vscode/
+*.swp
+# Private key files (do not commit)
+*.pem
+*.id_rsa
+*.key
+*.ppk
+
+# Public key files (optional, based on usage)
+*.pub
