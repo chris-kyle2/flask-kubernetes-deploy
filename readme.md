@@ -101,6 +101,7 @@ This project is divided into three main tasks, designed to streamline the develo
    - The URL will be listed under the `EXTERNAL-IP` column.
 
 3. **Application Monitoring**  
+![Public Access](images/Dashboard.png)
    - Basic monitoring is set up using AWS CloudWatch to track:
      - Application health
      - CPU and memory usage
@@ -136,6 +137,8 @@ This project is divided into three main tasks, designed to streamline the develo
 3. Verify the deployment:
    ```bash
    kubectl get svc flask-app-service
+   ![Public Access](images/Kubectl_svc.png)
+   
    ```
 4. Access the app via the LoadBalancer's public endpoint.
 
