@@ -34,10 +34,13 @@ This repository showcases a complete solution for deploying a Flask application 
 ## Project Overview 🎯
 
 This project is divided into three main tasks, designed to streamline the development, deployment, and monitoring of a Flask application:
+![Integration with cloud platform](images/Helloworld.png) 
 
 ### **Task 1: Kubernetes and Python**
 
 1. **Python Monitoring Script (`python_script.py`)**  
+![Python Script Output](images/python_script0.png)
+![Python Script Output](images/python_script.png)
    - Connects to a Kubernetes cluster.
    - Lists all running pods in a specific namespace.
    - Identifies pods not in the `Running` state and fetches their logs.
@@ -60,10 +63,12 @@ This project is divided into three main tasks, designed to streamline the develo
 ### **Task 2: GitHub Actions and Linux**
 
 1. **CI/CD Pipeline (`.github/workflows/build-and-deploy.yml`)**  
-   - **Automated Docker Build and Push**  
+   - **Automated Docker Build and Push**
+   ![GitHub Actions Workflow](images/build_and_push.png)
      - Builds the Flask app Docker image with a Git commit-based tag.
      - Pushes the image to Docker Hub.
    - **Automated Kubernetes Deployment**  
+   ![GitHub Actions Workflow](images/deploy_to_kubernetes.png)
      - Deploys the app to the EKS cluster using `kubectl apply`.
      - Checks deployment status with `kubectl rollout`.
    - **Error Notification**  
@@ -80,13 +85,15 @@ This project is divided into three main tasks, designed to streamline the develo
 
 ### **Task 3: Cloud Platform Integration**
 
-1. **Infrastructure as Code with Terraform (`Terraform/`)**  
+1. **Infrastructure as Code with Terraform (`Terraform/`)** 
+  ![Integration with cloud platform](images/terraform_resource.png) 
    - Provisions a production-grade EKS cluster on AWS.
    - Sets up a secure VPC with subnets and routing configurations.
    - Configures security groups to allow external traffic to the Flask application.
    - Outputs information about the infrastructure after deployment.
 
 2. **Deployment and Public Access**  
+  ![Public Access](images/kubernetes_resources.png) 
    - After the GitHub Actions workflow completes, retrieve the public URL for the Flask application by running:
      ```bash
      kubectl get svc flask-app-service
