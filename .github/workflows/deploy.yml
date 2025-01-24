@@ -67,6 +67,7 @@ jobs:
       - name: Check Deployment Rollout Status
         run: |
           kubectl rollout status deployment/flask-app-deployment
+          kubectl get svc
         continue-on-error: true
 
       - name: Notify on Deployment Failure
