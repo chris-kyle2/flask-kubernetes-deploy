@@ -137,10 +137,11 @@ This project is divided into three main tasks, designed to streamline the develo
 3. Verify the deployment:
    ```bash
    kubectl get svc flask-app-service
-   ![Public Access](images/Kubectl_svc.png)
    
+
    ```
 4. Access the app via the LoadBalancer's public endpoint.
+![Public Access](images/Kubectl_svc.png)
 
 ---
 
