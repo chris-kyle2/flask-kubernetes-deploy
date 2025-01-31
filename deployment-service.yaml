@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: <IMAGE_TAG>
+        image: 22monk/100msassignment:<IMAGE_TAG>
         ports:
         - containerPort: 5000
         resources:
@@ -35,8 +35,10 @@ kind: Service
 metadata:
   name: flask-app-service
 spec:
-  type: NodePort
+  type: LoadBalancer  
+  selector:
+    app: flask-app
   ports:
-    - port: 80
-      targetPort: 5000
-      nodePort: 30080
+  - protocol: TCP
+    port: 80      # This is the port the LoadBalancer will expose
+    targetPort: 5000  # This is the port the Flask app is running on inside the container
